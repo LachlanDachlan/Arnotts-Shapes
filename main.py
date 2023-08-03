@@ -1,1 +1,1 @@
-print("Gary Galvez")
+import yes_no
