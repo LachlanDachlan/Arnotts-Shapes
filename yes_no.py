@@ -1,18 +1,8 @@
-def yes_no(question):
-  while True:
-    response = input(question).lower()
-
-    if response == "yes" or response == "y":
-      return "yes"
-    elif response == "no" or response  == "n":
-      return "no"
-    else:
-      print("Please answer yes or no")
-
-want_instructions = yes_no("Do you want to read the instructions?: ").lower()
-if want_instructions == "yes":
-  print("")
-  print("")
-  print("")
-  print("")
-  
+while True:
+  yes_no = input("Would you like to read the instructions?")
+  if yes_no == "yes" or yes_no == "y":
+    print("Instructions go here")
+  elif yes_no == "no" or yes_no == "n":
+    print("ok lets begin")
+  else:
+    print("Sorry, that isn't a valid response. Please answer with yes or no")
