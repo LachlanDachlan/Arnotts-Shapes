@@ -10,3 +10,4 @@ while True:
   name = not_blank("Please input your name or write 'xxx' to quit: ")
   if name == 'xxx':
     break
+  
