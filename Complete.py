@@ -70,7 +70,7 @@ while True:
     elif side > 200:
       print("please enter a value lower than 200")
     square_area = side * side
-    print("The area of this shape is {}".format(square_area))
+    print("The area of this shape is {} cm".format(square_area))
     break
   elif shape == "rectangle":
     print("Interesting choice")
@@ -90,7 +90,7 @@ while True:
     elif length > 200:
       print("please enter a value lower than 200")
     rectangle_area = width * length
-    print("The area of this shape is {}".format(rectangle_area))
+    print("The area of this shape is {} cm".format(rectangle_area))
     break
   elif shape == "circle":
     print("Might be a little difficult but I will try")
@@ -104,7 +104,7 @@ while True:
     elif radius > 200:
       print("please enter a value lower than 200")
     circle_area = 3.14 * (radius * radius)
-    print("The are of this shape is {}".format(circle_area))
+    print("The are of this shape is {} cm".format(circle_area))
     break
   elif shape == "parallelogram":
     print("Ah ok")
@@ -124,7 +124,7 @@ while True:
     elif base > 200:
       print("please enter a value lower than 200")
     parallelogram_area = base * height
-    print("The area of this shape is {}".format(parallelogram_area))
+    print("The area of this shape is {} cm".format(parallelogram_area))
     break
   else:
     shape = shape_checker("please answer from the list: ")
