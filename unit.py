@@ -14,6 +14,3 @@ def unit(question):
       return unit
     else:
       print(error)
-
-measure = input("What unit of measurement would you like to use: ")
-print(measure)

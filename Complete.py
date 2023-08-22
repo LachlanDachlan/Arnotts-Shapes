@@ -1,3 +1,4 @@
+#enables sleep statements
 from time import sleep
 # a statement that makes sure you can only answer a yes or no question with yes or no  
 def yes_no(question):
@@ -28,6 +29,23 @@ def shape_checker(question):
       print("Please enter a shape from the list")
     else:
       return response
+# a statement that gives users units of measurement to choose from
+def unit(question):
+  error = "you have not selected the avalible units:"
+  valid = False
+  while not valid:
+    unit = input(question).lower().strip()
+    if unit == "meters" or unit == "m":
+      unit = "meters"
+      return unit
+    elif unit == "centimeters" or unit == "cm":
+      unit = "centimeters"
+      return unit
+    elif unit == "millimeters" or unit == "mm":
+      unit = "millimeters"
+      return unit
+    else:
+      print(error)
 
 
 
@@ -48,7 +66,9 @@ if want_instructions == "yes":
 if want_instructions == "no":
   print("Ok")
   sleep(0)
-  #Asks what the user wants calculated
+#Asks which unit of measurement the user wants  
+measure = unit("What unit of measurement would you like to use: ")
+#Asks what the user wants calculated
 area_perimeter = input("Would you like to calculate the area or the perimeter?: ")
 if area_perimeter == "area" or area_perimeter == "a":
   #asks for the shape they want, where shape checker is used
@@ -70,7 +90,7 @@ if area_perimeter == "area" or area_perimeter == "a":
         print("please enter a value lower than 200")
         #the calculation for the square's area
       square_area = side * side
-      print("The area of this shape is {} cm".format(square_area))
+      print("The area of this shape is {} {}".format(square_area, unit))
       break
     elif shape == "rectangle":
       print("ahh yes")
@@ -95,7 +115,7 @@ if area_perimeter == "area" or area_perimeter == "a":
         print("please enter a value lower than 200")
       #calculates the area of the rectangle with the users inputs  
       rectangle_area = width * length
-      print("The area of this shape is {} cm".format(rectangle_area))
+      print("The area of this shape is {} {}".format(rectangle_area, unit))
       break
     elif shape == "circle":
       print("Might be a little difficult but I will try")
@@ -113,7 +133,7 @@ if area_perimeter == "area" or area_perimeter == "a":
         print("please enter a value lower than 200")
       #calculates the circles area
       circle_area = 3.14 * (radius * radius)
-      print("The are of this shape is {} cm".format(circle_area))
+      print("The are of this shape is {} {}".format(circle_area, unit))
       break
     elif shape == "parallelogram":
       print("Ah ok")
@@ -136,11 +156,11 @@ if area_perimeter == "area" or area_perimeter == "a":
         print("please enter a value lower than 200")
       #calculates area with the users inputs
       parallelogram_area = base * height
-      print("The area of this shape is {} cm".format(parallelogram_area))
+      print("The area of this shape is {} {}".format(parallelogram_area, unit))
       break
   else:
     shape = shape_checker("please answer from the list: ")
-
+#
 elif area_perimeter == "perimeter" or area_perimeter == "p":
   shape = shape_checker("Out of the shapes Square, Rectangle, circle and Parallelogram, Which would you like to use?: ").lower()
   while True:
@@ -156,7 +176,7 @@ elif area_perimeter == "perimeter" or area_perimeter == "p":
       elif side > 200:
         print("please enter a value lower than 200")
       square_peri = 4 * side
-      print("The perimeter of this shape is {} cm".format(square_peri))
+      print("The perimeter of this shape is {} {}".format(square_peri, unit))
       break
     elif shape == "rectangle":
       print("Interesting choice")
@@ -176,7 +196,7 @@ elif area_perimeter == "perimeter" or area_perimeter == "p":
       elif length > 200:
         print("please enter a value lower than 200")
       rectangle_peri = 2 * (width * length)
-      print("The perimeter of this shape is {} cm".format(rectangle_peri))
+      print("The perimeter of this shape is {} {}".format(rectangle_peri, unit))
       break
     elif shape == "circle":
       print("Might be a little difficult but I will try")
@@ -190,7 +210,7 @@ elif area_perimeter == "perimeter" or area_perimeter == "p":
       elif radius > 200:
         print("please enter a value lower than 200")
       circle_peri = (3.14 * 2) * radius
-      print("The are of this shape is {} cm".format(circle_peri))
+      print("The are of this shape is {} {}".format(circle_peri, unit))
       break
     elif shape == "parallelogram":
       print("Ah ok")
@@ -210,6 +230,8 @@ elif area_perimeter == "perimeter" or area_perimeter == "p":
       elif base > 200:
         print("please enter a value lower than 200")
       parallelogram_peri = 2 * (base * side)
-      print("The perimeter of this shape is {} cm".format(parallelogram_peri))
+      print("The perimeter of this shape is {} {}".format(parallelogram_peri, unit))
       break
+
+
   
