@@ -12,14 +12,6 @@ def yes_no(question):
     else:
       print("Sorry, that isn't a valid response. Please answer with yes or no")
 
-# a statement that ensures you can only input numbers when needed
-def num_check(question):
-  while True:
-    try:
-      response = int(input(question))
-      return response
-    except ValueError:
-      print("Please enter an integer")
 
 # a statement that ensures you can only answer from a list of shapes 
 def shape_checker(question):
@@ -46,7 +38,16 @@ def unit(question):
       return unit
     else:
       print(error)
-
+#a statement that ensures that the number range is final
+def ap_checker(question):
+  error = "You need to enter a number between 2 and 200"
+  while True:
+    num_range = int(input(question))
+    if num_range in range(2,201):
+      print("goooood")
+      return num_range
+    else:
+      print(error)
 
 
 # Displays instructions if yes, skips if no
@@ -82,15 +83,12 @@ if area_perimeter == "area" or area_perimeter == "a":
       print("The maximum value you can use for this shape is 200")
       sleep(4)
       #asks for a number input (num_checker)
-      side = num_check("what value would you like to use for the sides: ")
+      side = ap_checker("what value would you like to use for the sides: ")
       #ensures that users can only choose from the given range
-      if side < 2:
-        print("please enter a value higher than 2")
-      elif side > 200:
-        print("please enter a value lower than 200")
+      
         #the calculation for the square's area
       square_area = side * side
-      print("The area of this shape is {} {}".format(square_area, unit))
+      print("The area of this shape is {} {}".format(square_area, measure))
       break
     elif shape == "rectangle":
       print("ahh yes")
@@ -100,8 +98,8 @@ if area_perimeter == "area" or area_perimeter == "a":
       print("The maximum value you can use for this shape is 200")
       sleep(4)
       #asks for number input (num_checker)
-      width = num_check("what value would you like to use for the width: ")
-      length = num_check("what value would you like to use for the length: ")
+      width = ap_checker("what value would you like to use for the width: ")
+      length = ap_checker("what value would you like to use for the length: ")
       #ensures that users can only answer from the given range
       if width < 2:
         print("please enter a value higher than 2")
@@ -115,7 +113,7 @@ if area_perimeter == "area" or area_perimeter == "a":
         print("please enter a value lower than 200")
       #calculates the area of the rectangle with the users inputs  
       rectangle_area = width * length
-      print("The area of this shape is {} {}".format(rectangle_area, unit))
+      print("The area of this shape is {} {}".format(rectangle_area, measure))
       break
     elif shape == "circle":
       print("Might be a little difficult but I will try")
@@ -125,7 +123,7 @@ if area_perimeter == "area" or area_perimeter == "a":
       print("The maximum value you can use for this shape is 200")
       sleep(4)
       #asks for a number input (num_checker)
-      radius = num_check("what value would you like to use for the radius: ")
+      radius = ap_checker("what value would you like to use for the radius: ")
       #ensures the user can only pick from the range
       if radius < 2:
         print("please enter a value higher than 2")
@@ -143,8 +141,8 @@ if area_perimeter == "area" or area_perimeter == "a":
       print("The maximum value you can use for this shape is 200")
       sleep(4)
       #asks for a number input (num_checker)
-      base = num_check("What value would you like to use for the base: ")
-      height = num_check("What value would you like to use for the height: ")
+      base = ap_checker("What value would you like to use for the base: ")
+      height = ap_checker("What value would you like to use for the height: ")
       if height < 2:
         print("please enter a value higher than 2")
       elif height > 200:
@@ -159,56 +157,71 @@ if area_perimeter == "area" or area_perimeter == "a":
       print("The area of this shape is {} {}".format(parallelogram_area, unit))
       break
   else:
+    #error message to make the user answer from the list
     shape = shape_checker("please answer from the list: ")
-#
+#allows the perimeter loop to start
 elif area_perimeter == "perimeter" or area_perimeter == "p":
+  #asks for the shape they want the perimeter of
   shape = shape_checker("Out of the shapes Square, Rectangle, circle and Parallelogram, Which would you like to use?: ").lower()
   while True:
     if shape == "square":
       print("Alright, shouldn't be to hard to calculate")
+      #gives the range of numbers
       print("The minimum value you can use for this shape is 2")
       sleep(4)
       print("The maximum value you can use for this shape is 200")
       sleep(4)
-      side = num_check("what value would you like to use for the sides: ")
+      #asks for the number they want for the sides of the square
+      side = ap_checker("what value would you like to use for the sides: ")
       if side < 2:
+        #ensures that users can only enter from the range
         print("please enter a value higher than 2")
       elif side > 200:
         print("please enter a value lower than 200")
+        #calculates the perimeter of the square with the users numbers
       square_peri = 4 * side
       print("The perimeter of this shape is {} {}".format(square_peri, unit))
       break
     elif shape == "rectangle":
       print("Interesting choice")
+      #gives the number range for the user
       print("The minimum value you can use for this shape is 2")
       sleep(4)
       print("The maximum value you can use for this shape is 200")
       sleep(4)
-      width = num_check("what value would you like to use for the width: ")
-      length = num_check("what value would you like to use for the length: ")
+      #asks for the number the user wants for the width
+      width = ap_checker("what value would you like to use for the width: ")
+      #asks for the number the user wants for the length
+      length = ap_checker("what value would you like to use for the length: ")
       if width < 2:
+        #ensures the user can only enter from the range
         print("please enter a value higher than 2")
       elif width > 200:
         print("please enter a value lower than 200")
-
+        #ensures the user can only enter from the range
       if length < 2:
         print("please enter a value higher than 2")
       elif length > 200:
         print("please enter a value lower than 200")
+        #calculates the perimeter of the rectangle with the users numbers
       rectangle_peri = 2 * (width * length)
       print("The perimeter of this shape is {} {}".format(rectangle_peri, unit))
       break
     elif shape == "circle":
       print("Might be a little difficult but I will try")
+      #gives the number range for the user to choose from
       print("The minimum value you can use for this shape is 2")
       sleep(4)
       print("The maximum value you can use for this shape is 200")
       sleep(4)
-      radius = num_check("what value would you like to use for the radius: ")
+      #asks for the number the user wants for the radius
+      radius = ap_checker("what value would you like to use for the radius: ")
       if radius < 2:
+        #ensures that the user can only choose from the range
         print("please enter a value higher than 2")
       elif radius > 200:
         print("please enter a value lower than 200")
+        #calculates the perimeter of the circle with the users numbers
       circle_peri = (3.14 * 2) * radius
       print("The are of this shape is {} {}".format(circle_peri, unit))
       break
@@ -218,8 +231,8 @@ elif area_perimeter == "perimeter" or area_perimeter == "p":
       sleep(4)
       print("The maximum value you can use for this shape is 200")
       sleep(4)
-      base = num_check("What value would you like to use for the base: ")
-      side = num_check("What value would you like to use for the sides: ")
+      base = ap_checker("What value would you like to use for the base: ")
+      side = ap_checker("What value would you like to use for the sides: ")
       if side < 2:
         print("please enter a value higher than 2")
       elif side > 200:
