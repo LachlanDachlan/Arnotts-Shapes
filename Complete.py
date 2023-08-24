@@ -41,11 +41,29 @@ def unit(question):
 #a statement that ensures that the number range is final
 def ap_checker(question):
   error = "You need to enter a number between 2 and 200"
+  valid = False
+  while not valid:
+    try:
+      num_range = int(input(question))
+      if num_range in range(2,201):
+        print("alright")
+        return num_range
+      else:
+        valid = False
+    
+    except ValueError:
+      print(error)
+#ensures that the user can only enter area or perimeter
+def a_or_p(question):
+  error = "Please enter one of the two"
   while True:
-    num_range = int(input(question))
-    if num_range in range(2,201):
-      print("goooood")
-      return num_range
+    a_or_p = input(question)
+    if a_or_p == "area" or a_or_p == "a":
+      print("so its area")
+      return a_or_p
+    elif a_or_p == "perimeter" or a_or_p == "p":
+      print("so its perimeter")
+      return a_or_p
     else:
       print(error)
 
@@ -70,7 +88,7 @@ if want_instructions == "no":
 #Asks which unit of measurement the user wants  
 measure = unit("What unit of measurement would you like to use: ")
 #Asks what the user wants calculated
-area_perimeter = input("Would you like to calculate the area or the perimeter?: ")
+area_perimeter = a_or_p("Would you like to calculate the area or the perimeter?: ")
 if area_perimeter == "area" or area_perimeter == "a":
   #asks for the shape they want, where shape checker is used
   shape = shape_checker("Out of the shapes Square, Rectangle, circle and Parallelogram, Which would you like to use?: ").lower()
@@ -87,7 +105,7 @@ if area_perimeter == "area" or area_perimeter == "a":
       #ensures that users can only choose from the given range
       
         #the calculation for the square's area
-      square_area = side * side
+      square_area = (side * side)
       print("The area of this shape is {} {}".format(square_area, measure))
       break
     elif shape == "rectangle":
