@@ -227,17 +227,23 @@ elif area_perimeter == "perimeter" or area_perimeter == "p":
       break
     elif shape == "parallelogram":
       print("Ah ok")
+      #gives the number range for users to choose from
       print("The minimum value you can use for this shape is 2")
       sleep(4)
       print("The maximum value you can use for this shape is 200")
       sleep(4)
+      #asks for the number the user wants for the values they want for the base
       base = ap_checker("What value would you like to use for the base: ")
+      #asks for the number the user wants to use for the sides
       side = ap_checker("What value would you like to use for the sides: ")
       if side < 2:
+        #ensures that the number range is final
         print("please enter a value higher than 2")
       elif side > 200:
         print("please enter a value lower than 200")
+        
 
+      #ensures that the number range is final
       if base < 2:
         print("please enter a value higher than 2")
       elif base > 200:
